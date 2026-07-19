@@ -258,6 +258,20 @@ body.auth-locked #gdBtn,body.auth-locked #gdPanel{display:none;}
   </div>
 </div>
 
+<div class="full card">
+  <div class="ct">🔬 Chẩn đoán phễu (Funnel diagnostics) <span style="color:#aaa;text-transform:none;font-weight:400;">— đi từng tầng: tầng đạt → xuống tầng dưới · chưa đạt → xử lý theo gợi ý · target CPV/CTR/CTOR lấy từ KPI Ads control trong plan (tháng <span class="pm-lbl"></span>)</span></div>
+  <div class="g3" id="funnelGates" style="margin-bottom:8px;"></div>
+  <div class="g3" style="margin-bottom:8px;">
+    <div class="card" style="padding:7px 9px;"><div style="font-size:9px;font-weight:700;color:#555;margin-bottom:2px;">Tầng 1 · CPM × CPV × ERR <span style="color:#aaa;font-weight:400;">theo ngày</span></div><div style="position:relative;height:158px;"><canvas id="scF1"></canvas></div></div>
+    <div class="card" style="padding:7px 9px;"><div style="font-size:9px;font-weight:700;color:#555;margin-bottom:2px;">Tầng 2 · CTR × Click × AOV <span style="color:#aaa;font-weight:400;">theo ngày</span></div><div style="position:relative;height:158px;"><canvas id="scF2"></canvas></div></div>
+    <div class="card" style="padding:7px 9px;"><div style="font-size:9px;font-weight:700;color:#555;margin-bottom:2px;">Tầng 3 · CTOR × GMV × ROI <span style="color:#aaa;font-weight:400;">theo ngày</span></div><div style="position:relative;height:158px;"><canvas id="scF3"></canvas></div></div>
+  </div>
+  <div class="g2" style="margin-bottom:0;">
+    <div><div style="font-size:9px;font-weight:700;color:#555;margin-bottom:4px;">📈 Tương quan với GMV/giờ <span style="color:#aaa;font-weight:400;text-transform:none;">— r Pearson theo ngày trong scope · |r|≥.5 mạnh · .3–.5 khá · &lt;.3 yếu</span></div><table id="tblCorr"></table></div>
+    <div><div style="font-size:9px;font-weight:700;color:#555;margin-bottom:4px;">🧭 Nhận xét tự động</div><div id="funnelNote" style="font-size:9px;line-height:1.6;color:#374151;background:#fffdf6;border:1.5px dashed #f2b09a;border-radius:6px;padding:8px 11px;"></div></div>
+  </div>
+</div>
+
 <div class="full card" id="planCard">
   <div class="ct">🎯 Plan vs Actual <span id="planMtd"></span> <span style="color:#aaa;text-transform:none;font-weight:400;">— Plan NMV (H46) &amp; Ads (E46) từ GSheet Ads Monthly Plan · NMV Actual = GMV × 0.85 · %Tiến độ = NMV actual ÷ plan lũy kế đến ngày data · CIR = (Ads + Fix) ÷ NMV, target ≤ 0.28 · khối này tính đủ tháng, không theo filter</span></div>
   <div class="tblwrap" style="max-height:260px;"><table id="tblPlan"></table></div>
@@ -285,6 +299,14 @@ body.auth-locked #gdBtn,body.auth-locked #gdPanel{display:none;}
   <div class="ct">🔁 So sánh tuần (WoW) <span style="color:#aaa;text-transform:none;font-weight:400;">— tuần Thứ 2→CN · WoW % so với <b>cùng khoảng ngày của tháng trước</b> (logic sheet WoW) · nhãn: 🔥 Deal Day = tuần có ngày đôi · 🌗 Mid Month = có ngày 15 · 💰 Pay Day = có ngày 25</span></div>
   <div class="tblwrap" style="max-height:330px;"><table id="tblWoW"></table></div>
 </div>
+
+<div class="full card">
+  <div class="ct">🎬 Key metrics theo Day Type (loại phiên live) <span style="color:#aaa;text-transform:none;font-weight:400;">— Super Mega/Mega = ngày đẩy mạnh, BAU = nền · nền xanh↔đỏ theo chiều tốt/xấu của chỉ số · %ACOS Act tô theo actual/target · click để lọc</span></div>
+  <div class="tblwrap" style="max-height:250px;"><table id="tblType"></table></div>
+  <div id="typeNote" class="note"></div>
+</div>
+
+<div class="card"><div class="ct">🕗 Detail theo khung giờ live <span style="color:#aaa;text-transform:none;font-weight:400;">— click để lọc</span></div><div class="tblwrap" style="max-height:220px;"><table id="tblSlot"></table></div></div>
 
 <div class="full card">
   <div class="ct">🎬 Key metrics theo Day Type (loại phiên live) <span style="color:#aaa;text-transform:none;font-weight:400;">— Super Mega/Mega = ngày đẩy mạnh, BAU = nền · nền xanh↔đỏ theo chiều tốt/xấu của chỉ số · %ACOS Act tô theo actual/target · click để lọc</span></div>
